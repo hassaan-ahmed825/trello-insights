@@ -15,7 +15,6 @@
         }
         .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
 
-        /* Header */
         header {
             background: #0A1628;
             padding: 20px 0;
@@ -32,9 +31,7 @@
             font-weight: 800;
             color: #E8EDF5;
         }
-        .logo span {
-            color: #00D4FF;
-        }
+        .logo span { color: #00D4FF; }
         .logo .badge {
             background: rgba(255, 215, 0, 0.12);
             color: #FFD700;
@@ -43,7 +40,6 @@
             font-size: 10px;
             font-weight: 600;
             margin-left: 10px;
-            letter-spacing: 0.5px;
         }
         .nav a {
             color: rgba(136, 153, 180, 0.8);
@@ -55,7 +51,6 @@
         }
         .nav a:hover { color: #00D4FF; }
 
-        /* Hero */
         .hero {
             padding: 80px 0 50px;
             text-align: center;
@@ -129,18 +124,97 @@
             box-shadow: 0 8px 40px rgba(0, 212, 255, 0.25);
         }
 
-        .guarantee {
-            background: rgba(0, 230, 118, 0.04);
-            border: 1px solid rgba(0, 230, 118, 0.08);
-            border-radius: 12px;
-            padding: 16px 24px;
-            text-align: center;
-            max-width: 500px;
-            margin: 20px auto 0;
+        /* ============================================================
+           TRUST BADGES
+        ============================================================ */
+        .trust-badges {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            margin-top: 25px;
         }
-        .guarantee strong { color: #00E676; }
+        .trust-badges span {
+            font-size: 14px;
+            color: rgba(136, 153, 180, 0.6);
+        }
+        .trust-badges span::before {
+            content: "✓ ";
+            color: #00E676;
+        }
 
-        /* Features */
+        /* ============================================================
+           HOW IT WORKS
+        ============================================================ */
+        .how-it-works {
+            padding: 60px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.03);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+        }
+        .how-it-works h2 {
+            text-align: center;
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 40px;
+            color: #E8EDF5;
+        }
+        .how-it-works h2 span { color: #00D4FF; }
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+        .step {
+            text-align: center;
+            padding: 20px;
+        }
+        .step .number {
+            display: inline-block;
+            background: rgba(0, 212, 255, 0.1);
+            color: #00D4FF;
+            font-size: 24px;
+            font-weight: 800;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            line-height: 50px;
+            margin-bottom: 15px;
+            border: 1px solid rgba(0, 212, 255, 0.08);
+        }
+        .step h3 { font-size: 18px; font-weight: 600; margin-bottom: 8px; color: #E8EDF5; }
+        .step p { color: rgba(136, 153, 180, 0.6); font-size: 14px; }
+
+        /* ============================================================
+           FAQ
+        ============================================================ */
+        .faq {
+            padding: 60px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.03);
+        }
+        .faq h2 {
+            text-align: center;
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 40px;
+            color: #E8EDF5;
+        }
+        .faq h2 span { color: #00D4FF; }
+        .faq-grid {
+            max-width: 800px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        .faq-item {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            border-radius: 12px;
+            padding: 18px 25px;
+        }
+        .faq-item h4 { font-size: 16px; font-weight: 600; color: #E8EDF5; margin-bottom: 5px; }
+        .faq-item p { font-size: 14px; color: rgba(136, 153, 180, 0.6); }
+
         .features {
             padding: 60px 0;
             background: rgba(255, 255, 255, 0.01);
@@ -176,7 +250,6 @@
         .feature-card h3 { font-size: 18px; font-weight: 600; margin-bottom: 8px; color: #E8EDF5; }
         .feature-card p { color: rgba(136, 153, 180, 0.7); font-size: 14px; }
 
-        /* Pricing */
         .pricing {
             padding: 60px 0;
         }
@@ -234,7 +307,6 @@
             margin-top: 15px;
         }
 
-        /* Testimonials */
         .testimonials {
             padding: 60px 0;
             border-top: 1px solid rgba(255, 255, 255, 0.03);
@@ -262,7 +334,6 @@
         .testimonial .author { font-weight: 600; font-size: 14px; color: #E8EDF5; }
         .testimonial .role { font-size: 12px; color: rgba(136, 153, 180, 0.5); }
 
-        /* Footer */
         footer {
             background: #060E1A;
             padding: 40px 0;
@@ -286,9 +357,10 @@
         @media (max-width: 768px) {
             .hero h1 { font-size: 32px; }
             .hero .price-box .price { font-size: 36px; }
-            .pricing-grid { grid-template-columns: 1fr; }
+            .steps { grid-template-columns: 1fr; }
             .features-grid { grid-template-columns: 1fr; }
             .testimonial-grid { grid-template-columns: 1fr; }
+            .pricing-grid { grid-template-columns: 1fr; }
             .nav a { margin-left: 15px; font-size: 13px; }
         }
     </style>
@@ -304,8 +376,10 @@
         </div>
         <div class="nav">
             <a href="#features">Features</a>
+            <a href="#how-it-works">How It Works</a>
             <a href="#pricing">Pricing</a>
             <a href="#testimonials">Testimonials</a>
+            <a href="#faq">FAQ</a>
         </div>
     </div>
 </header>
@@ -325,7 +399,35 @@
         <br />
         <a href="#pricing" class="cta-btn">🚀 Get Trello Genius Now</a>
 
-        
+        <div class="trust-badges">
+            <span>Secure Payment</span>
+            <span>Instant Download</span>
+            <span>One-Time Payment</span>
+        </div>
+    </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how-it-works" id="how-it-works">
+    <div class="container">
+        <h2>How It <span>Works</span></h2>
+        <div class="steps">
+            <div class="step">
+                <div class="number">1</div>
+                <h3>🔑 Get Your Token</h3>
+                <p>Click "Get Token" — Trello opens, click "Allow", copy your token.</p>
+            </div>
+            <div class="step">
+                <div class="number">2</div>
+                <h3>📋 Select Your Board</h3>
+                <p>Click "Load Boards" — choose the board you want to report on.</p>
+            </div>
+            <div class="step">
+                <div class="number">3</div>
+                <h3>🚀 Generate Report</h3>
+                <p>Click "Generate Report" — your professional report is ready in seconds.</p>
+            </div>
+        </div>
     </div>
 </section>
 
@@ -337,7 +439,7 @@
             <div class="feature-card">
                 <span class="icon">📊</span>
                 <h3>Professional Reports</h3>
-                <p>One-click HTML reports with stats, charts, and card details. Print to PDF for clients.</p>
+                <p>One-click HTML reports with stats, charts, and card details. Download PDF instantly.</p>
             </div>
             <div class="feature-card">
                 <span class="icon">📈</span>
@@ -379,17 +481,17 @@
                 <ul>
                     <li>Full tool (reports + dashboard + automation)</li>
                     <li>Unlimited professional HTML reports</li>
+                    <li>Direct PDF download</li>
                     <li>Automation actions included</li>
                     <li>Report customization</li>
                     <li>7‑day special email support</li>
                     <li>Normal email support throughout the year</li>
-                    
                 </ul>
                 <a href="https://hassaan36.gumroad.com/l/trello" class="cta-btn">Buy Now – $39</a>
             </div>
         </div>
         <p class="support-note">
-            🔒 Secure payment via Stripe • Instant download • License key included
+            🔒 Secure payment via Gumroad • Instant download • License key included
         </p>
     </div>
 </section>
@@ -416,6 +518,27 @@
                 <p>"I love the dashboard — I can see my entire project health at a glance without opening Trello."</p>
                 <div class="author">— Elena M.</div>
                 <div class="role">Team Lead, Startup</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq" id="faq">
+    <div class="container">
+        <h2>Frequently Asked <span>Questions</span></h2>
+        <div class="faq-grid">
+            <div class="faq-item">
+                <h4>❓ Is there a monthly subscription?</h4>
+                <p>No — Trello Genius is a one-time payment. You pay $39 once and use it forever.</p>
+            </div>
+            <div class="faq-item">
+                <h4>❓ Do I need to install anything?</h4>
+                <p>No — just download and run the .exe file. No Python, no dependencies, no technical setup.</p>
+            </div>
+            <div class="faq-item">
+                <h4>❓ Does it work with any Trello board?</h4>
+                <p>Yes — it works with all Trello boards, including free and premium accounts.</p>
             </div>
         </div>
     </div>
