@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Trello Genius – Professional Reports for Trello</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #0A0E1A;
+            color: #E8EDF5;
+            line-height: 1.6;
+        }
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+
+        header {
+            background: #0A1628;
+            padding: 20px 0;
+            border-bottom: 1px solid rgba(0, 212, 255, 0.06);
+        }
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .logo {
+            font-size: 24px;
+            font-weight: 800;
+            color: #E8EDF5;
+        }
+        .logo span { color: #00D4FF; }
+        .logo .badge {
+            background: rgba(255, 215, 0, 0.12);
+            color: #FFD700;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 10px;
+            font-weight: 600;
+            margin-left: 10px;
+        }
+        .nav a {
+            color: rgba(136, 153, 180, 0.8);
+            text-decoration: none;
+            margin-left: 25px;
+            font-weight: 500;
+            font-size: 14px;
+            transition: color 0.3s;
+        }
+        .nav a:hover { color: #00D4FF; }
+
+        .hero {
+            padding: 80px 0 50px;
+            text-align: center;
+            background: radial-gradient(ellipse at 50% 20%, rgba(0, 212, 255, 0.04) 0%, transparent 70%);
+        }
+        .hero h1 {
+            font-size: 48px;
+            font-weight: 800;
+            color: #E8EDF5;
+            line-height: 1.2;
+            margin-bottom: 15px;
+        }
+        .hero h1 span { color: #00D4FF; }
+        .hero p {
+            font-size: 20px;
+            color: rgba(136, 153, 180, 0.8);
+            max-width: 600px;
+            margin: 0 auto 30px;
+        }
+        .hero .badge {
+            display: inline-block;
+            background: rgba(0, 212, 255, 0.1);
+            color: #00D4FF;
+            padding: 6px 18px;
+            border-radius: 30px;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            border: 1px solid rgba(0, 212, 255, 0.08);
+        }
+        .hero .price-box {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.03);
+            padding: 20px 40px;
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            margin-top: 10px;
+        }
+        .hero .price-box .price {
+            font-size: 48px;
+            font-weight: 800;
+            color: #00D4FF;
+        }
+        .hero .price-box .price span {
+            font-size: 20px;
+            font-weight: 500;
+            color: rgba(136, 153, 180, 0.6);
+        }
+        .hero .price-box .sub {
+            font-size: 14px;
+            color: rgba(136, 153, 180, 0.5);
+            margin-top: 5px;
+        }
+        .cta-btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #00D4FF, #0066CC);
+            color: white;
+            padding: 16px 50px;
+            border-radius: 40px;
+            font-size: 20px;
+            font-weight: 700;
+            text-decoration: none;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 30px rgba(0, 212, 255, 0.15);
+        }
+        .cta-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 40px rgba(0, 212, 255, 0.25);
+        }
+
+        .trust-badges {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            margin-top: 25px;
+        }
+        .trust-badges span {
+            font-size: 14px;
+            color: rgba(136, 153, 180, 0.6);
+        }
+        .trust-badges span::before {
+            content: "✓ ";
+            color: #00E676;
+        }
+
+        .how-it-works {
+            padding: 60px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.03);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+        }
+        .how-it-works h2 {
+            text-align: center;
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 40px;
+            color: #E8EDF5;
+        }
+        .how-it-works h2 span { color: #00D4FF; }
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+        .step {
+            text-align: center;
+            padding: 20px;
+        }
+        .step .number {
+            display: inline-block;
+            background: rgba(0, 212, 255, 0.1);
+            color: #00D4FF;
+            font-size: 24px;
+            font-weight: 800;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            line-height: 50px;
+            margin-bottom: 15px;
+            border: 1px solid rgba(0, 212, 255, 0.08);
+        }
+        .step h3 { font-size: 18px; font-weight: 600; margin-bottom: 8px; color: #E8EDF5; }
+        .step p { color: rgba(136, 153, 180, 0.6); font-size: 14px; }
+
+        .faq {
+            padding: 60px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.03);
+        }
+        .faq h2 {
+            text-align: center;
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 40px;
+            color: #E8EDF5;
+        }
+        .faq h2 span { color: #00D4FF; }
+        .faq-grid {
+            max-width: 800px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        .faq-item {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            border-radius: 12px;
+            padding: 18px 25px;
+        }
+        .faq-item h4 { font-size: 16px; font-weight: 600; color: #E8EDF5; margin-bottom: 5px; }
+        .faq-item p { font-size: 14px; color: rgba(136, 153, 180, 0.6); }
+
+        .features {
+            padding: 60px 0;
+            background: rgba(255, 255, 255, 0.01);
+            border-top: 1px solid rgba(255, 255, 255, 0.03);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+        }
+        .features h2 {
+            text-align: center;
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 40px;
+            color: #E8EDF5;
+        }
+        .features h2 span { color: #00D4FF; }
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+        .feature-card {
+            background: rgba(255, 255, 255, 0.02);
+            padding: 30px;
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            transition: all 0.3s ease;
+        }
+        .feature-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(0, 212, 255, 0.08);
+            box-shadow: 0 8px 40px rgba(0, 0, 0, 0.2);
+        }
+        .feature-card .icon { font-size: 36px; margin-bottom: 10px; display: block; }
+        .feature-card h3 { font-size: 18px; font-weight: 600; margin-bottom: 8px; color: #E8EDF5; }
+        .feature-card p { color: rgba(136, 153, 180, 0.7); font-size: 14px; }
+
+        .pricing {
+            padding: 60px 0;
+        }
+        .pricing h2 {
+            text-align: center;
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 40px;
+            color: #E8EDF5;
+        }
+        .pricing h2 span { color: #00D4FF; }
+        .pricing-grid {
+            max-width: 550px;
+            margin: 0 auto;
+        }
+        .pricing-card {
+            background: rgba(255, 255, 255, 0.02);
+            padding: 40px;
+            border-radius: 16px;
+            text-align: center;
+            border: 1px solid rgba(0, 212, 255, 0.08);
+            transition: all 0.3s ease;
+        }
+        .pricing-card:hover {
+            border-color: rgba(0, 212, 255, 0.2);
+            box-shadow: 0 8px 40px rgba(0, 0, 0, 0.2);
+        }
+        .pricing-card .price {
+            font-size: 48px;
+            font-weight: 800;
+            color: #00D4FF;
+        }
+        .pricing-card .price span {
+            font-size: 18px;
+            font-weight: 400;
+            color: rgba(136, 153, 180, 0.6);
+        }
+        .pricing-card ul {
+            list-style: none;
+            margin: 25px 0;
+            text-align: left;
+        }
+        .pricing-card ul li {
+            padding: 6px 0;
+            font-size: 14px;
+            color: rgba(232, 237, 245, 0.8);
+        }
+        .pricing-card ul li::before { content: "✅ "; color: #00E676; }
+        .pricing-card .cta-btn { font-size: 18px; padding: 14px 45px; }
+
+        .support-note {
+            text-align: center;
+            color: rgba(136, 153, 180, 0.5);
+            font-size: 13px;
+            margin-top: 15px;
+        }
+
+        .testimonials {
+            padding: 60px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.03);
+        }
+        .testimonials h2 {
+            text-align: center;
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 40px;
+            color: #E8EDF5;
+        }
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        .testimonial {
+            background: rgba(255, 255, 255, 0.02);
+            padding: 25px;
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.04);
+        }
+        .testimonial .stars { color: #FFD700; font-size: 18px; }
+        .testimonial p { font-size: 14px; color: rgba(232, 237, 245, 0.7); margin: 10px 0; }
+        .testimonial .author { font-weight: 600; font-size: 14px; color: #E8EDF5; }
+        .testimonial .role { font-size: 12px; color: rgba(136, 153, 180, 0.5); }
+
+        footer {
+            background: #060E1A;
+            padding: 40px 0;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.03);
+        }
+        footer a { color: rgba(136, 153, 180, 0.6); text-decoration: none; }
+        footer a:hover { color: #00D4FF; }
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+        footer p {
+            color: rgba(136, 153, 180, 0.3);
+            font-size: 13px;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 32px; }
+            .hero .price-box .price { font-size: 36px; }
+            .steps { grid-template-columns: 1fr; }
+            .features-grid { grid-template-columns: 1fr; }
+            .testimonial-grid { grid-template-columns: 1fr; }
+            .pricing-grid { grid-template-columns: 1fr; }
+            .nav a { margin-left: 15px; font-size: 13px; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+    <div class="container">
+        <div class="logo">
+            🚀 Trello <span>Genius</span>
+            <span class="badge">✦ PREMIUM</span>
+        </div>
+        <div class="nav">
+            <a href="#features">Features</a>
+            <a href="#how-it-works">How It Works</a>
+            <a href="#pricing">Pricing</a>
+            <a href="#testimonials">Testimonials</a>
+            <a href="#faq">FAQ</a>
+        </div>
+    </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+    <div class="container">
+        <div class="badge">🔥 One-Time Purchase • No Subscription</div>
+        <h1>Professional Reports for <span>Trello</span></h1>
+        <p>Generate stunning reports, track blocked cards, automate tasks, and get a live dashboard — all in one tool.</p>
+
+        <div class="price-box">
+            <div class="price">$39 <span>one-time</span></div>
+            <div class="sub">Full tool • No monthly fees</div>
+        </div>
+
+        <br />
+        <a href="#pricing" class="cta-btn">🚀 Get Trello Genius Now</a>
+
+        <div class="trust-badges">
+            <span>Secure Payment</span>
+            <span>Instant Download</span>
+            <span>One-Time Payment</span>
+        </div>
+    </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how-it-works" id="how-it-works">
+    <div class="container">
+        <h2>How It <span>Works</span></h2>
+        <div class="steps">
+            <div class="step">
+                <div class="number">1</div>
+                <h3>🔑 Get Your Token</h3>
+                <p>Click "Get Token" — Trello opens, click "Allow", copy your token.</p>
+            </div>
+            <div class="step">
+                <div class="number">2</div>
+                <h3>📋 Select Your Board</h3>
+                <p>Click "Load Boards" — choose the board you want to report on.</p>
+            </div>
+            <div class="step">
+                <div class="number">3</div>
+                <h3>🚀 Generate Report</h3>
+                <p>Click "Generate Report" — your professional report is ready in seconds.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FEATURES -->
+<section class="features" id="features">
+    <div class="container">
+        <h2>What's <span>Inside</span>?</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <span class="icon">📊</span>
+                <h3>Professional Reports</h3>
+                <p>One-click HTML reports with stats, charts, and card details. Download PDF instantly.</p>
+            </div>
+            <div class="feature-card">
+                <span class="icon">📈</span>
+                <h3>7-Day Trend Chart</h3>
+                <p>See how overdue, stale, and completed cards change over time.</p>
+            </div>
+            <div class="feature-card">
+                <span class="icon">🚧</span>
+                <h3>Blocked Card Detection</h3>
+                <p>Automatically find cards stuck in "Blocked" or "Waiting" lists.</p>
+            </div>
+            <div class="feature-card">
+                <span class="icon">⚡</span>
+                <h3>Automation Actions</h3>
+                <p>Move stale cards, assign overdue, add blocked labels, and comment on stale — all with one click.</p>
+            </div>
+            <div class="feature-card">
+                <span class="icon">🖥️</span>
+                <h3>Live Dashboard</h3>
+                <p>Key metrics at a glance: total cards, overdue, stale, completed, and bottleneck alerts.</p>
+            </div>
+            <div class="feature-card">
+                <span class="icon">🎨</span>
+                <h3>Report Customization</h3>
+                <p>Choose exactly which sections appear in your report — tailor it for clients or internal teams.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- PRICING -->
+<section class="pricing" id="pricing">
+    <div class="container">
+        <h2>Simple <span>Pricing</span></h2>
+        <div class="pricing-grid">
+            <div class="pricing-card">
+                <h3 style="font-size:20px; color:#E8EDF5; margin-bottom:5px;">Trello Genius</h3>
+                <div class="price">$39 <span>one-time</span></div>
+                <ul>
+                    <li>Full tool (reports + dashboard + automation)</li>
+                    <li>Unlimited professional HTML reports</li>
+                    <li>Direct PDF download – one click, no print dialogs</li>
+                    <li>Executive Summary with Health Score (0-100)</li>
+                    <li>Report branding – add company name, project, client</li>
+                    <li>7‑day trend charts and card analysis</li>
+                    <li>Blocked card detection and stale card tracking</li>
+                    <li>Automation actions (move stale cards, assign overdue, add blocked labels)</li>
+                    <li>Report customization – show/hide sections</li>
+                    <li>7‑day special email support</li>
+                    <li>Normal email support throughout the year</li>
+                </ul>
+                <a href="https://hassaan36.gumroad.com/l/trello" class="cta-btn">Buy Now – $39</a>
+            </div>
+        </div>
+        <p class="support-note">
+            🔒 Secure payment via Gumroad • Instant download • License key included
+        </p>
+    </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials" id="testimonials">
+    <div class="container">
+        <h2>What Users Are Saying</h2>
+        <div class="testimonial-grid">
+            <div class="testimonial">
+                <div class="stars">★★★★★</div>
+                <p>"This tool saved me hours of manual reporting. I can generate a beautiful client report in 10 seconds."</p>
+                <div class="author">— Sarah K.</div>
+                <div class="role">Project Manager, Agency</div>
+            </div>
+            <div class="testimonial">
+                <div class="stars">★★★★★</div>
+                <p>"The automation actions are a game-changer. I can now move stale cards and assign overdue cards with one click."</p>
+                <div class="author">— Marcus R.</div>
+                <div class="role">Freelance Consultant</div>
+            </div>
+            <div class="testimonial">
+                <div class="stars">★★★★★</div>
+                <p>"I love the dashboard — I can see my entire project health at a glance without opening Trello."</p>
+                <div class="author">— Elena M.</div>
+                <div class="role">Team Lead, Startup</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq" id="faq">
+    <div class="container">
+        <h2>Frequently Asked <span>Questions</span></h2>
+        <div class="faq-grid">
+            <div class="faq-item">
+                <h4>❓ Is there a monthly subscription?</h4>
+                <p>No — Trello Genius is a one-time payment. You pay $39 once and use it forever.</p>
+            </div>
+            <div class="faq-item">
+                <h4>❓ Do I need to install anything?</h4>
+                <p>No — just download and run the .exe file. No Python, no dependencies, no technical setup.</p>
+            </div>
+            <div class="faq-item">
+                <h4>❓ Does it work with any Trello board?</h4>
+                <p>Yes — it works with all Trello boards, including free and premium accounts.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <div class="container">
+        <div class="footer-links">
+            <a href="#">Home</a>
+            <a href="#features">Features</a>
+            <a href="#pricing">Pricing</a>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms</a>
+        </div>
+        <p>
+            © 2026 Trello Genius. Built for Trello users everywhere.
+            <br />
+            <span style="font-size: 11px; opacity: 0.5;">Trello is a registered trademark of Atlassian. Not affiliated with Trello.</span>
+        </p>
+    </div>
+</footer>
+
+</body>
+</html>
